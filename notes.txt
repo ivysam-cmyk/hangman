@@ -1,0 +1,7 @@
+comp chooses 5-12 letter word
+underscores representing the word show up
+total 9 tries
+guess the letter
+display the letter guessed
+
+after 5 tries game over
