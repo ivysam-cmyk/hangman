@@ -78,6 +78,9 @@ class Game
       end
       @number_of_tries -= 1
     end
+    if @input_array.join != @ans
+      puts "You have lost."
+    end
   end
 end
 
