@@ -4,8 +4,9 @@ underscores representing the word show up (done)
 player chooses letter (done)
 letter shows up with blank spaces (done)
 display the previous guesses after each guess (done)
-and that letter cannot be chosen again
- after 9 tries decide if array.join != ans then lose
+and that letter cannot be chosen again, this is triggered when letter is entered by the user(done)
+ after 9 tries decide if array.join != ans then lose this
+ first check if the input matches @ans this is done every input
 
 
 #(methods and variables must be in a instance method otherwise they will be executed before creating any instance and may not work within the instance)
