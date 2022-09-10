@@ -1,11 +1,11 @@
-comp chooses 5-12 letter word
-underscores representing the word show up
-player chooses letter and that letter cannot be chosen again
 total 9 tries
-guess the letter
-display the letter guessed
-
-after 5 tries game over
+comp chooses 5-12 letter word (done)
+underscores representing the word show up (done)
+player chooses letter (done)
+letter shows up with blank spaces (done)
+display the previous guesses after each guess (done)
+and that letter cannot be chosen again
+ after 9 tries decide if array.join != ans then lose
 
 
 #(methods and variables must be in a instance method otherwise they will be executed before creating any instance and may not work within the instance)
