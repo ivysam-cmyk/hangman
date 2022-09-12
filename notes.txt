@@ -5,10 +5,11 @@ player chooses letter (done)
 letter shows up with blank spaces (done)
 display the previous guesses after each guess (done)
 and that letter cannot be chosen again, this is triggered when letter is entered by the user(done)
- after 15 tries decide if array.join != ans then lose this(done)
- first check if the input matches @ans this is done every input(done)
- 
- serialize and give an option to load previously saved game at start of every play_game 
+after 15 tries decide if array.join != ans then lose this(done)
+first check if the input matches @ans this is done every input(done)
 
+SERIALIZE
+serialize and give an option to load previously saved game at start of every play_game 
+give an option to save every choose_letter
 
 #(methods and variables must be in a instance method otherwise they will be executed before creating any instance and may not work within the instance)

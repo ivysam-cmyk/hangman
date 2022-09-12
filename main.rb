@@ -1,6 +1,13 @@
+require "yaml"
 require 'pry-byebug'
 class Game
-  
+  def initialize
+    end_game  = false
+    find_words
+    @guess_array = []
+    @number_of_tries = (@ans.length * 2 )
+    
+  end
   def blank_spaces 
     @input_array = []
     (@ans.length).times do
@@ -23,14 +30,19 @@ class Game
     puts @ans
     #underscores representing the word show up
     blank_spaces 
-    puts "Choose a letter, you have 15 tries in total"
+    puts "Choose a letter, you have #{@number_of_tries} tries in total"
   end
   
   def choose_letter
     loop do
-      puts "Choose a letter"
+      puts "Choose a letter, or save by typing 'save'."
       @letter_chosen = gets.chomp
-      break if (!@guess_array.include?(@letter_chosen)) &&( @letter_chosen.length == 1)
+      if (!@guess_array.include?(@letter_chosen)) &&( @letter_chosen.length == 1)
+        break
+      elsif @letter_chosen == "save"
+        save_game
+        break
+      end
     end
       puts "Error, make sure you enter a single letter."
     
@@ -57,23 +69,30 @@ class Game
   def check_ans
     if @input_array.join == @ans
       puts "You have won"
-      @end_game = true
+      end_game = true
+    elsif @input_array.join != @ans
+      puts "You have lost."
+      #end_game is still false.
     end
   end
 
-  def play_game
-    @end_game  = false
-    find_words
-    @guess_array = []
-    @number_of_tries = 15
-    15.times do
-      if @number_of_tries < 15
+  def save_game
+    File.open("game_save.yml", 'w') { |f| YAML.dump([] << self, f) } #f at the end is i/o which is the file being saved to
+    exit
+  end
+
+
+
+  def play_loaded
+    #make the loaded game continue here
+    (@number_of_tries).times do 
+      if @number_of_tries < (@ans.length * 2)
         puts "You have #{@number_of_tries} tries remaining and you have guessed #{@guess_array} until now. "
       end
       choose_letter
       verify_input
       check_ans
-      if @end_game == true
+      if end_game == true
         break
       end
       @number_of_tries -= 1
@@ -82,7 +101,34 @@ class Game
       puts "You have lost."
     end
   end
-end
 
+  def load_game
+    loaded_game = YAML.load_file("game_save.yml",permitted_classes: [Game]) 
+    loaded_game.play_loaded
+  end
+  
+  def play_game
+    puts "Start a new game or load saved game by typing 'load'."
+    @initial_dec = gets.chomp
+    if @initial_dec == "load"
+      load_game
+    else
+      (@number_of_tries).times do 
+        if @number_of_tries < (@ans.length *2)
+          puts "You have #{@number_of_tries} tries remaining and you have guessed #{@guess_array} until now. "
+        end
+        puts "letter about to be chosen."
+        choose_letter
+        verify_input
+        check_ans
+        if end_game == true
+          break
+        end
+        @number_of_tries -= 1
+      end
+    end
+  end
+end
 hangman = Game.new
 hangman.play_game
+
