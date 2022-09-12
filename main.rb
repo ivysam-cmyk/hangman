@@ -2,7 +2,7 @@ require "yaml"
 require 'pry-byebug'
 class Game
   def initialize
-    end_game  = false
+    @end_game  = false
     find_words
     @guess_array = []
     @number_of_tries = (@ans.length * 2 )
@@ -114,14 +114,14 @@ class Game
       load_game
     else
       (@number_of_tries).times do 
-        if @number_of_tries < (@ans.length *2)
+        if @number_of_tries < (@ans.length * 2)
           puts "You have #{@number_of_tries} tries remaining and you have guessed #{@guess_array} until now. "
         end
         puts "letter about to be chosen."
         choose_letter
         verify_input
         check_ans
-        if end_game == true
+        if @end_game == true
           break
         end
         @number_of_tries -= 1

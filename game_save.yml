@@ -1,25 +1,33 @@
 ---
 - !ruby/object:Game
   end_game: false
-  ans: enough
+  ans: basically
   input_array:
-  - e
+  - b
+  - a
   - _
+  - i
   - _
+  - a
   - _
   - _
   - _
   guess_array:
-  - e
-  number_of_tries: 14
-  initial_dec: e
+  - a
+  - b
+  - i
+  number_of_tries: 15
+  initial_dec: ''
   letter_chosen: save
   split_ans:
-  - e
-  - "n"
-  - o
-  - u
-  - g
-  - h
+  - b
+  - a
+  - s
+  - i
+  - c
+  - a
+  - l
+  - l
+  - "y"
   letter_index_array:
-  - 0
+  - 3
