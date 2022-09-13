@@ -38,13 +38,13 @@ class Game
       puts "Choose a letter, or save by typing 'save'."
       @letter_chosen = gets.chomp
       if (!@guess_array.include?(@letter_chosen)) &&( @letter_chosen.length == 1)
+        puts "letter chosen successfully"
         break
       elsif @letter_chosen == "save"
         save_game
         break
       end
     end
-      puts "Error, make sure you enter a single letter."
     
   end
 
@@ -69,10 +69,10 @@ class Game
   def check_ans
     if @input_array.join == @ans
       puts "You have won"
-      end_game = true
-    elsif @input_array.join != @ans
+      @end_game = true
+    elsif( @input_array.join != @ans) && (@number_of_tries == 0)
       puts "You have lost."
-      #end_game is still false.
+      #@end_game is still false.
     end
   end
 
@@ -83,16 +83,19 @@ class Game
 
 
 
-  def self.play_loaded
+  def play_loaded
     #make the loaded game continue here
+    p @input_array
+    p @number_of_tries
     (@number_of_tries).times do 
+      puts "loop has started"
       if @number_of_tries < (@ans.length * 2)
         puts "You have #{@number_of_tries} tries remaining and you have guessed #{@guess_array} until now. "
       end
       choose_letter
       verify_input
       check_ans
-      if end_game == true
+      if @end_game == true
         break
       end
       @number_of_tries -= 1
@@ -104,7 +107,7 @@ class Game
 
   def load_game
     loaded_game = YAML.load_file("game_save.yml",permitted_classes: [Game]) 
-    p loaded_game
+    loaded_game
     loaded_game.play_loaded
   end
   

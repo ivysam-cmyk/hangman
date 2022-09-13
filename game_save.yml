@@ -1,22 +1,30 @@
 --- !ruby/object:Game
 end_game: false
-ans: minds
+ans: brothers
 input_array:
+- b
+- r
 - _
 - _
 - _
-- d
 - _
+- r
+- s
 guess_array:
-- d
-number_of_tries: 9
-initial_dec: m
+- b
+- r
+- s
+number_of_tries: 13
+initial_dec: b
 letter_chosen: save
 split_ans:
-- m
-- i
-- "n"
-- d
+- b
+- r
+- o
+- t
+- h
+- e
+- r
 - s
 letter_index_array:
-- 3
+- 7
