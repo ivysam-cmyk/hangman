@@ -1,33 +1,22 @@
----
-- !ruby/object:Game
-  end_game: false
-  ans: basically
-  input_array:
-  - b
-  - a
-  - _
-  - i
-  - _
-  - a
-  - _
-  - _
-  - _
-  guess_array:
-  - a
-  - b
-  - i
-  number_of_tries: 15
-  initial_dec: ''
-  letter_chosen: save
-  split_ans:
-  - b
-  - a
-  - s
-  - i
-  - c
-  - a
-  - l
-  - l
-  - "y"
-  letter_index_array:
-  - 3
+--- !ruby/object:Game
+end_game: false
+ans: minds
+input_array:
+- _
+- _
+- _
+- d
+- _
+guess_array:
+- d
+number_of_tries: 9
+initial_dec: m
+letter_chosen: save
+split_ans:
+- m
+- i
+- "n"
+- d
+- s
+letter_index_array:
+- 3

@@ -77,13 +77,13 @@ class Game
   end
 
   def save_game
-    File.open("game_save.yml", 'w') { |f| YAML.dump([] << self, f) } #f at the end is i/o which is the file being saved to
+    File.open("game_save.yml", 'w') { |f| YAML.dump(self, f) } #f at the end is i/o which is the file being saved to
     exit
   end
 
 
 
-  def play_loaded
+  def self.play_loaded
     #make the loaded game continue here
     (@number_of_tries).times do 
       if @number_of_tries < (@ans.length * 2)
@@ -104,6 +104,7 @@ class Game
 
   def load_game
     loaded_game = YAML.load_file("game_save.yml",permitted_classes: [Game]) 
+    p loaded_game
     loaded_game.play_loaded
   end
   
